@@ -1,0 +1,122 @@
+.btnColor {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.btnColor:hover {
+    background-color: #5936a2;
+    color: white;
+}
+
+/* Animaciones personalizadas */
+.fade-in-left {
+    animation: fadeInLeft 0.5s ease-out;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.5s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Estilos para el editor */
+.editor-container {
+    background-color: #f5f7fa;
+  }
+  
+  .template-card {
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  
+  .template-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .template-card.selected {
+    border-color: #0d6efd;
+    background-color: #f8f9fa;
+  }
+  
+  .template-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+  
+  .selected-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border-radius: 50%;
+    padding: 2px;
+  }
+  
+  .browser-bar {
+    background: #e9ecef;
+    padding: 8px 15px;
+    border-radius: 0.375rem 0.375rem 0 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+    margin-right: 10px;
+  }
+  
+  .browser-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .browser-url {
+    flex-grow: 1;
+    background: white;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: #495057;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .preview-content {
+    border-radius: 0 0 0.375rem 0.375rem;
+    border: 1px solid #dee2e6;
+    border-top: none;
+  }
+  
+  .editor-tabs .nav-link {
+    display: flex;
+    align-items: center;
+  }

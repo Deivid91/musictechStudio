@@ -1,31 +1,41 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MenuNavegacion from './components/MenuNavegacion';
+import BarraLateral from './components/BarraLateral';
+import PiePagina from './components/PiePagina';
+import PaginaInicio from './pages/PaginaInicio';
+import PaginaPerfil from './pages/PaginaPerfil';
+import PaginaPanelAdmin from './pages/PaginaPanelAdmin';
+import PaginaEditorWeb from './pages/PaginaEditorWeb';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const userRole = 'user'; // 'guest', 'user' o 'admin'
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-        </a>
-        <a href="https://react.dev" target="_blank">
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="d-flex flex-column min-vh-100">
+      <Router>
+        <MenuNavegacion
+          role={userRole}
+          />
+        <div className="d-flex flex-grow-1">
+          {(userRole === 'user' || userRole === 'admin') && (
+            <BarraLateral role={userRole} />
+          )}
+          <main className="flex-grow-1 p-4">
+            <Routes>
+              <Route path="/" element={<PaginaInicio userRole={userRole} />} />
+              <Route path="/perfil" element={<PaginaPerfil />} />
+              <Route path="/admin" element={<PaginaPanelAdmin />} />
+              <Route path="/editor" element={<PaginaEditorWeb />} />
+            </Routes>
+          </main>
+        </div>
+        <PiePagina />
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;
